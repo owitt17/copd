@@ -69,4 +69,4 @@ http://127.0.0.1:5000/
 
 - Only `.wav` files are supported for upload.
 - The chatbot uses the Gemini API key configured in `app.py`. You can swap it to an environment variable for security.
-
+- `api_keytest.py` was removed to avoid committing secrets.
