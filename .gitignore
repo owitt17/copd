@@ -1,0 +1,43 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.vscode/
+
+# Runtime uploads
+uploads/
+
+# Datasets / large raw assets
+DATASETS/
+DATASETS.zip
+NEW_DATASETS/
+NEW_HEALTHY/
+NEW_COPD/
+testing/
+sounds/
+spectrograms/
+Audio Files/
+
+# Audio files
+*.wav
+
+# Training artifacts / large binaries
+CNN-RNN hybrid training/
+CNN-RNN-training records/
+graph training/
+SimpleRNN/
+LSTM/
+*.h5
+*.xlsx
+*.pkl
+training_performance.png
+cnn_rnn_training_history.png
+confusion_matrix_new_dataset.png
+confusion_matrix.png
+
+# Keep runtime model
+!model_copd.h5
+
+# Training artifacts / temp
+temp_1/
+temp_2/

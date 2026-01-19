@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COPD Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    
+    <header>
+        <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Beauty Model"></a>
+        <div class="logo">Chronic Obstructive Pulmonary Disease Detection</div>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/chatbot">Chatbot</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="hero-text">
+            <h1>Understanding COPD Through Spectrogram Analysis</h1>
+            <p>Chronic Obstructive Pulmonary Disease (COPD) is a progressive lung disease that causes breathing difficulties due to obstructed airflow. It is commonly associated with chronic bronchitis and emphysema, leading to symptoms such as wheezing, shortness of breath, and persistent coughing. Early detection of COPD is crucial for effective management, and one way to analyze respiratory health is through spectrograms—visual representations of sound frequencies over time.</p>
+    
+            <div class="spectrogram-section">
+                <h2>COPD Spectrogram Analysis</h2>
+                <div class="spectrogram-container">
+                    <div class="spectrogram-text">
+                        <p>The spectrogram on the right represents a breathing sound from a COPD patient. It shows irregular spikes and high-energy regions, which indicate turbulent airflow caused by airway obstruction. The presence of wheezing and crackles common in COPD appears as erratic patterns in lower and mid-range frequencies. These abnormal breathing sounds help distinguish COPD from normal respiratory function.</p>
+                    </div>
+                    <img src="{{ url_for('static', filename='images/copd_sample.png') }}" alt="COPD spectrograms" class="spectrogram-img">
+                </div>
+            </div>
+    
+            <div class="spectrogram-section">
+                <h2>Healthy Breathing Spectrogram</h2>
+                <div class="spectrogram-container">
+                    <div class="spectrogram-text">
+                        <p>In contrast, the healthy breathing spectrogram exhibits a smooth and structured frequency distribution, with no significant interruptions. The breathing cycles appear consistent, reflecting normal lung function with unobstructed airflow. The absence of sharp irregularities in the frequency spectrum suggests a steady and controlled respiration pattern, which is typically seen in individuals without respiratory diseases.</p>
+                    </div>
+                    <img src="{{ url_for('static', filename='images/healthy_sample.png') }}" alt="Healthy spectrograms" class="spectrogram-img">
+                </div>
+            </div>
+    
+            <p>By comparing these spectrograms, we can observe clear differences in breathing patterns between a COPD patient and a healthy individual. Machine Learning models, particularly Convolutional Neural Networks (CNNs), can leverage these patterns to classify and detect COPD at an early stage, assisting in medical diagnostics and research.</p>
+        </div>
+    </section>
+    
+</body>
+</html>

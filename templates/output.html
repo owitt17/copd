@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload COPD Recording</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header>
+        <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Beauty Model"></a>
+        <div class="logo">Chronic Obstructive Pulmonary Disease Detection</div>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/chatbot">Chatbot</a>
+        </nav>
+    </header>
+
+    <section class="hero-hero">
+        <div class="middle-text">
+            <h2>Please upload your audio in wav format</h2>
+    
+            <h2>RESULT:</h2>
+            <div class="result-box" id="result"></div>
+    
+            <!-- Audio Player (Initially Hidden) -->
+            <div id="audioContainer" class="middle-text-audio">
+                <audio id="audioPlayer"  controls></audio>
+            </div>
+
+            <form id="uploadForm">
+                <input type="file" name="file" id="fileInput" accept=".wav" required>
+                <button type="submit" class="check-btn">Upload and Analyze</button>
+            </form>
+        </div>
+    </section>
+    
+    <script>
+        const form = document.getElementById('uploadForm');
+        const resultDiv = document.getElementById('result');
+        const fileInput = document.getElementById('fileInput');
+        const audioPlayer = document.getElementById('audioPlayer');
+        
+    
+        // Display selected audio file
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            const audioContainer = document.getElementById("audioContainer");
+            
+            if (file && file.type === "audio/wav") {
+                const objectURL = URL.createObjectURL(file);
+                audioPlayer.src = objectURL;
+                audioContainer.style.display = "flex"; // Show and center audio player
+            } else {
+                audioContainer.style.display = "none"; // Hide if not valid
+            }
+        });
+    
+        // Handle file upload
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+    
+            const file = fileInput.files[0];
+            if (!file) {
+                resultDiv.textContent = 'Please upload a .wav file.';
+                return;
+            }
+    
+            const formData = new FormData();
+            formData.append('file', file);
+    
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+    
+                if (response.ok) {
+                    const data = await response.json();
+                    resultDiv.textContent = `${data.result}`;
+                } else {
+                    const errorData = await response.json();
+                    resultDiv.textContent = `Error: ${errorData.error}`;
+                }
+            } catch (error) {
+                resultDiv.textContent = 'Error uploading file.';
+            }
+        });
+    </script>
+</body>
+</html>

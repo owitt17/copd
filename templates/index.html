@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+  <header>
+    <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Beauty Model"></a>
+    <div class="logo">Chronic Obstructive Pulmonary Disease Detection</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/chatbot">Chatbot</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text-index">
+      <h1>Detecting Chronic lung disease</h1>
+      <p>The purpose of this website is to get a new easy and fast checkup for people who have Chronic Obstructive Pulmonary Disease (COPD).</p>
+      <button><a href="/output" class="check-btn">CHECK NOW</a></button>
+    </div>
+    <div class="hero-image">
+      <img src="{{ url_for('static', filename='images/model_copd.png') }}" alt="COPD pic">
+    </div>
+  </section>
+</body>
+</html>

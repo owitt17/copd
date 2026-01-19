@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COPD Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body> 
+    <header>
+        <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Beauty Model"></a>
+        <div class="logo">Chronic Obstructive Pulmonary Disease Detection</div>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/chatbot">Chatbot</a>
+        </nav>
+    </header>
+
+    <div class="chat-container">
+        <div class="chat-sidebar">
+            <img src="{{ url_for('static', filename='images/AIchatbot.gif') }}" alt="Linda Bot">
+            <h3>Linda Bot</h3>
+        </div>
+    
+        <div class="chat-main">
+            <div class="chat-header">Chat with Linda Bot</div>
+    
+            <div class="chat-body" id="chat-body">
+                <div class="bot-message">
+                    Hi! Click on a question below to learn about COPD.
+                </div>
+            </div>
+    
+            <div class="chat-footer" id="question-buttons">
+                <!-- Buttons are dynamically added here by JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
